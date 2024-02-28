@@ -1,0 +1,87 @@
+/* 通用重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 确保边框和填充不影响元素尺寸计算 */
+}
+
+/* 更精细的重置，针对特定元素 */
+body, h1, h2, h3, h4, h5, h6, 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+[type="checkbox"], [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* 针对表单元素 */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+}
+
+/* 清除内联列表样式 */
+li {
+  list-style: none;
+}
+
+/* 修复在IE中不一致的line-height */
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+}
+
+/* 表单元素垂直对齐 */
+button, input {
+  line-height: normal;
+}
+
+/* Remove the default vertical scrollbar in IE. */
+textarea {
+  overflow: auto;
+}

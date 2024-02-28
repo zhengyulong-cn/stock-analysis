@@ -1,0 +1,41 @@
+import { IFuturesMarginItem } from "./official";
+
+/**
+ * 没有权限及风险较高的品种，不做
+ */
+export const banProducts: Pick<IFuturesMarginItem, 'product' | 'symbol'>[] = [
+  { product: '豆一', symbol: 'a' },
+  { product: '豆二', symbol: 'b' },
+  { product: '豆粕', symbol: 'm' },
+  { product: '豆油', symbol: 'y' },
+  { product: '棕榈油', symbol: 'p' },
+  { product: '粳米', symbol: 'rr' },
+  { product: '粳稻', symbol: 'JR' },
+  { product: '铁矿石', symbol: 'i' },
+  { product: '白糖', symbol: 'SR' },
+  { product: '菜粕', symbol: 'RM' },
+  { product: '菜油', symbol: 'OI' },
+  { product: '花生', symbol: 'PK' },
+  { product: '原油', symbol: 'sc' },
+  { product: '原油TAS', symbol: 'sc_tas' },
+  { product: '20号胶', symbol: 'nr' },
+  { product: 'PTA', symbol: 'TA' },
+  { product: '国际铜', symbol: 'bc' },
+  { product: '燃料油', symbol: 'fu' },
+  { product: '低硫燃料油', symbol: 'lu' },
+  { product: 'SCFIS欧线', symbol: 'ec' },
+  { product: '工业硅', symbol: 'si' },
+  { product: '中证500股指', symbol: 'IC' },
+  { product: '沪深300股指', symbol: 'IF' },
+  { product: '上证50股指', symbol: 'IH' },
+  { product: '中证1000股指', symbol: 'IM' },
+  { product: '2年国债', symbol: 'TS' },
+  { product: '5年国债', symbol: 'TF' },
+  { product: '10年国债', symbol: 'T' },
+  { product: '30年国债期货', symbol: 'TL' },
+  { product: '强筋麦', symbol: 'WH' },
+  { product: '动力煤ZC', symbol: 'ZC' },
+  { product: '早籼稻', symbol: 'RI' },
+  { product: '晚籼稻', symbol: 'LR' },
+  { product: '碳酸锂', symbol: 'lc' },
+]

@@ -1,0 +1,25 @@
+{
+  "name": "stock-analysis",
+  "version": "1.0.0",
+  "description": "个人股票期货分析系统",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "dev:app": "pnpm --filter @stock/app dev",
+    "dev:server": "pnpm --filter @stock/server start",
+    "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages"
+  },
+  "keywords": [],
+  "author": "Zhengyu",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0"
+  }
+}
