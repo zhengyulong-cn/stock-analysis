@@ -2,8 +2,8 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
 import * as cheerio from 'cheerio';
-import { IFuturesMarginItem } from './official';
 import { banProducts } from './ban_products';
+import { IFuturesMarginItem } from '@stock/core';
 
 @Injectable()
 export class OfficialService {
@@ -29,18 +29,7 @@ export class OfficialService {
     return tableData;
   }
 
-  async getProductsOptions() {
-    const tableData = await this.getFuturesMarginData();
-    return [...new Map(
-      tableData.map(item => {
-        const index = banProducts.findIndex(el => el.symbol === item.symbol);
-        return [item.product + item.symbol, {
-          code: item.symbol,
-          product: item.product,
-          exchange: item.exchange,
-          isBan: index > 0,
-        }];
-      })
-    ).values()];
+  async getBanProducts() {
+    return banProducts;
   }
 }

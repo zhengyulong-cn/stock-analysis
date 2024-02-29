@@ -15,3 +15,5 @@ export interface IFuturesMarginItem {
   huishang_standard_margin: string;
   key: string;
 }
+
+export type IBanProduct = Pick<IFuturesMarginItem, 'product' | 'symbol'>

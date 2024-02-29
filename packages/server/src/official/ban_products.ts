@@ -1,4 +1,4 @@
-import { IFuturesMarginItem } from "./official";
+import { IFuturesMarginItem } from "@stock/core";
 
 /**
  * 没有权限及风险较高的品种，不做

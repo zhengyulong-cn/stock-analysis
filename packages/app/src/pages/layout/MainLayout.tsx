@@ -1,12 +1,21 @@
 import { Layout, Menu, MenuProps } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './styles.module.less'
 import menuData from "./sidebar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { usePublicLoad } from "@/hooks";
 
 export const MainLayout = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const { getFuturesMarginData } = usePublicLoad();
+  const location = useLocation();
   const navicate = useNavigate();
+  useEffect(() => {
+    getFuturesMarginData();
+    if (location.pathname === '/') {
+      navicate('/risk_calc', { replace: true });
+    }
+  }, [])
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
     navicate(key);
   }
@@ -17,7 +26,7 @@ export const MainLayout = () => {
           onClick={handleMenuClick}
           items={menuData}
           mode="inline"
-          defaultOpenKeys={['futures']}
+          defaultOpenKeys={['futures']}                                                        
         />
       </Layout.Sider>
       <Layout>

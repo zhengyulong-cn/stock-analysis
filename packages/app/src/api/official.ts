@@ -1,23 +1,19 @@
 import request from "@/axios";
+import { IFuturesMarginItem, IBanProduct } from "@stock/core";
 
 const officialApi = {
   async getFuturesMarginData() {
-    const res = await request("official/data", {
-      method: "GET"
+    const res = await request<IFuturesMarginItem[]>("official/data", {
+      method: "GET",
     })
     return res.data;
   },
-  async getOfficialOptions() {
-    const res = await request<Array<{
-      code: string;
-      product: string;
-      exchange: string;
-      isBan: boolean;
-    }>>("official/options", {
-      method: "GET"
+  async getBanProducts() {
+    const res = await request<IBanProduct[]>("official/banProducts", {
+      method: "GET",
     })
     return res.data;
-  }
+  },
 }
 
 export default officialApi;

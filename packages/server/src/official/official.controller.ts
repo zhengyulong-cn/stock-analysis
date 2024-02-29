@@ -8,8 +8,8 @@ export class OfficialController {
   async getOfficialData() {
     return this.officialService.getFuturesMarginData();
   }
-  @Get('options')
-  async getOfficialOptions() {
-    return this.officialService.getProductsOptions();
+  @Get('banProducts')
+  async getBanProducts() {
+    return this.officialService.getBanProducts();
   }
 }

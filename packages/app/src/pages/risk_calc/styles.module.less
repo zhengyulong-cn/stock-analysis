@@ -5,15 +5,28 @@
     font-family: "kaiti";
   }
   .inputBody {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
     .inputItem {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      grid-template-rows: 1fr;
       align-items: center;
-      column-gap: 4px;
+      column-gap: 8px;
+      .itemTitle {
+        justify-self: flex-end;
+      }
+      .itemMulti {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        .rowCost {
+          display: flex;
+          column-gap: 8px;
+        }
+      }
     }
   }
 }

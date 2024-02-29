@@ -1,29 +1,18 @@
-import Api from "@/api"
 import { Table, TableProps } from "antd"
 import { useEffect, useRef, useState } from "react"
 import styles from './styles.module.less'
+import { useAtom } from "jotai"
+import { Atoms } from "@/store"
 
 export const StandardMarginList = () => {
-  const [dataSource, setDataSource] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [futuresMargin] = useAtom(Atoms.futuresMarginAtom);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const tableRef = useRef(null);
   const [clientHeight, setClientHeight] = useState(0);
   useEffect(() => {
-    getFuturesMarginData();
-  }, [])
-  useEffect(() => {
     const height = wrapperRef.current?.clientHeight ? wrapperRef.current.clientHeight - 40 : 0;
     setClientHeight(height);
   })
-  const getFuturesMarginData = () => {
-    setLoading(true);
-    Api.getFuturesMarginData().then((res: any) => {
-      setDataSource(res)
-    }).finally(() => {
-      setLoading(false);
-    })
-  }
   const columns: TableProps['columns'] = [
     {
       title: '品种',
@@ -73,14 +62,13 @@ export const StandardMarginList = () => {
     <div className={styles.standardMarginListWrapper} ref={wrapperRef}>
       <div className={styles.title}>数据来源于徽商期货官网</div>
       <Table
-        loading={loading}
         style={{
           height: clientHeight,
         }}
         ref={tableRef}
         className={styles.table}
         columns={columns}
-        dataSource={dataSource}
+        dataSource={futuresMargin}
         pagination={false}
         scroll={{
           // 表头高度约为55

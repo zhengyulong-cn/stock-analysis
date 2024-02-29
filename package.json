@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev:app": "pnpm --filter @stock/app dev",
-    "dev:server": "pnpm --filter @stock/server start",
+    "dev:server": "pnpm --filter @stock/server start:dev",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages"
   },
   "keywords": [],
