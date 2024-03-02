@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Setup PNPM
+        run: |
+          curl -fsSL https://get.pnpm.io/install.sh | sh -s -- --unsafe-perm
       - name: Build Backend
         run:
           pnpm clean
