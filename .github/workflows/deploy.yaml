@@ -1,0 +1,32 @@
+name: Monorepo Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build Backend
+        run:
+          pnpm clean
+          pnpm install
+          pnpm run build:server
+      - name: SCP Backend to Server
+        run: |
+          tar -czf server.tar.gz packages/server/dist
+          scp server.tar.gz ${{ secrets.SSH_USERNAME }}@47.103.19.175:/path/to/deploy/backends
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      - name: Deploy Backend to Server
+        run: |
+          ssh ${{ secrets.SSH_USERNAME }}@47.103.19.175 << EOF
+            cd /path/to/deploy/backends
+            rm -rf old-backend && mv current-backend old-backend || true # 备份
+            tar -xzvf server.tar.gz -C /path/to/deploy/backends/current-backend
+            node current-backend/main.js
+          EOF

@@ -88,17 +88,17 @@ export const RiskCalc = () => {
               canBuyContracts - 1 > 0 && (
                 <div className={styles.rowCost}>
                   <div className={styles.itemTitle}>{ canBuyContracts - 1 }手总花费</div>
-                  <div>{ (canBuyContracts - 1) * productPrice }￥</div>
+                  <div>{ (canBuyContracts - 1) * OneContractCost }￥</div>
                 </div>
               )
             }
             <div className={styles.rowCost}>
               <div className={styles.itemTitle}>{ canBuyContracts }手总花费</div>
-              <div>{ canBuyContracts * productPrice }￥</div>
+              <div>{ canBuyContracts * OneContractCost }￥</div>
             </div>
             <div className={styles.rowCost}>
               <div className={styles.itemTitle}>{ canBuyContracts + 1 }手总花费</div>
-              <div>{ (canBuyContracts + 1) * productPrice }￥</div>
+              <div>{ (canBuyContracts + 1) * OneContractCost }￥</div>
             </div>
           </div>
         </div>
