@@ -12,13 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup PNPM
-        run: |
-          curl -fsSL https://get.pnpm.io/install.sh | sh -s -- --unsafe-perm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
       - name: Build Backend
         run:
-          pnpm clean
           pnpm install
-          pnpm run build:server
+          pnpm run build:server || (echo "Build failed, see logs below:" && cat ./packages/server/dist/build.log)
       - name: SCP Backend to Server
         run: |
           tar -czf server.tar.gz packages/server/dist
