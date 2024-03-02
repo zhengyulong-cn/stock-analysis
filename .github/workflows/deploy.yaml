@@ -5,7 +5,7 @@ on:
       - master
 
 env:
-  HOST: 47.103.19.175
+  HOST: 47.103.10.185
   USERNAME: ${{ secrets.SSH_USERNAME }}
   PASSWORD: ${{ secrets.SSH_PASSWORD }}
 
