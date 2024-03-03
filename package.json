@@ -15,7 +15,7 @@
     "build:server": "pnpm --filter @stock/server build",
     "build:core": "pnpm --filter @stock/core build",
     "build": "pnpm run build:core && pnpm run build:app && pnpm run build:server",
-    "pm2:server": "pm2-runtime start packages/server/pm2.config.js",
+    "pm2:server": "pm2 start ./packages/server/pm2.config.js",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages"
   },
   "keywords": [],
