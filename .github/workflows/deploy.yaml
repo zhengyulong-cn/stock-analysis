@@ -43,5 +43,8 @@ jobs:
           password: ${{ env.PASSWORD }}
           script: |
             mkdir /var/www/stock-analysis -p
-            cd /var/www/stock-analysis
-            tar -xzvf server.tar.gz -C /var/www/server/stock-analysis
+            cd /var/www/
+            tar -xzvf server.tar.gz -C /var/www/stock-analysis
+            cd stock-analysis
+            pnpm install
+            pnpm m2:server
