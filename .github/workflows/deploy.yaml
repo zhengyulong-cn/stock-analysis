@@ -35,14 +35,15 @@ jobs:
           password: ${{ env.PASSWORD }}
           source: 'server.tar.gz'
           target: /var/www/server
-      - name: Deploy Backend to Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ env.HOST }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
-          script: |
-            cd /var/www/server
-            rm -rf old-stock-backend && mv current-stock-backend old-stock-backend || true
-            tar -xzvf server.tar.gz -C /var/www/server/current-stock-backend
-            node current-stock-backend/main.js
+      # - name: Deploy Backend to Server
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ env.HOST }}
+      #     username: ${{ env.USERNAME }}
+      #     password: ${{ env.PASSWORD }}
+      #     script: |
+      #       mkdir /var/www/server -p
+      #       cd /var/www/server
+      #       rm -rf old-stock-backend && mv current-stock-backend old-stock-backend || true
+      #       tar -xzvf server.tar.gz -C /var/www/server/current-stock-backend
+      #       node current-stock-backend/main.js
