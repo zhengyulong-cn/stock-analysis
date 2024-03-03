@@ -49,4 +49,4 @@ jobs:
             tar -xzvf server.tar.gz -C /var/www/stock-analysis
             cd stock-analysis
             pnpm install
-            pnpm m2:server
+            pnpm -w pm2:server
