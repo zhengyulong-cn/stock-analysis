@@ -3,7 +3,7 @@ const maxMemoryRestart = '1452M';
 module.exports = {
   apps: [
     {
-      name: 'nest',
+      name: 'stock-nest',
       script: './dist/main.js',
       cwd: 'packages/server',
       // restart from memory
