@@ -26,7 +26,7 @@ jobs:
           pnpm --workspace-root run build:server || (echo "Build failed, see logs below:" && cat ./packages/server/dist/build.log)
       - name: Package backend build folder
         run: |
-          tar -czf server.tar.gz packages/server/dist
+          tar -czvf server.tar.gz package.json pnpm-lock.yaml pnpm-workspace.yaml packages/core/dist packages/core/package.json packages/app/dist packages/app/package.json packages/server/dist packages/server/package.json
       - name: Upload to Deploy Server
         uses: appleboy/scp-action@master
         with:
@@ -34,7 +34,20 @@ jobs:
           username: ${{ env.USERNAME }}
           password: ${{ env.PASSWORD }}
           source: 'server.tar.gz'
-          target: /var/www/server
+          target: /var/www/
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.HOST }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
+          script: |
+            mkdir /var/www/stock-analysis -p
+            sudo tar -xzvf server.tar.gz -C /var/www/server/stock-analysis
+            cd /var/www/stock-analysis
+            pnpm install
+            pnpm m2:server
+
       # - name: Deploy Backend to Server
       #   uses: appleboy/ssh-action@master
       #   with:
