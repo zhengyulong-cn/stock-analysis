@@ -23,7 +23,7 @@ jobs:
       - name: Build Backend
         run: |
           pnpm install
-          pnpm --workspace-root run build:server || (echo "Build failed, see logs below:" && cat ./packages/server/dist/build.log)
+          pnpm -w build || (echo "Build failed, see logs below:" && cat ./packages/server/dist/build.log)
       - name: Package backend build folder
         run: |
           tar -czvf server.tar.gz package.json pnpm-lock.yaml pnpm-workspace.yaml packages/core/dist packages/core/package.json packages/app/dist packages/app/package.json packages/server/dist packages/server/package.json
