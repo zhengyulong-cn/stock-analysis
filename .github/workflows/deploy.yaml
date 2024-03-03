@@ -47,6 +47,7 @@ jobs:
             mkdir /var/www/stock-analysis -p
             cd /var/www/
             tar -xzvf server.tar.gz -C /var/www/stock-analysis
+            rm server.tar.gz
             cd stock-analysis
             pnpm install
             pnpm -w pm2:server

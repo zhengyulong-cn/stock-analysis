@@ -6,7 +6,7 @@ export const usePublicLoad = () => {
   const [_, setFuturesMarginAtom] = useAtom(Atoms.futuresMarginAtom);
   const getFuturesMarginData = async () => {
     const futuresMargin = await Api.getFuturesMarginData();
-    setFuturesMarginAtom(futuresMargin);
+    await setFuturesMarginAtom(futuresMargin);
     return futuresMargin;
   }
   const getBanProducts = async () => {

@@ -6,8 +6,8 @@ import { useAtom } from 'jotai';
 import { Atoms } from '@/store';
 
 export const RiskCalc = () => {
-  const [options, setOptions] = useState<SelectProps['options']>([]);
   const [futuresMargin] = useAtom(Atoms.futuresMarginAtom);
+  const [options, setOptions] = useState<SelectProps['options']>([]);
   const [myMoney, setMyMoney] = useState<number>(0);
   const [productDeliveryMonth, setProductDeliveryMonth] = useState<string>();
   const [productPrice, setProductPrice] = useState<number>(0);
@@ -55,7 +55,7 @@ export const RiskCalc = () => {
           />
         </div>
         <div className={styles.inputItem}>
-          <div className={styles.itemTitle}>品种当前价格</div>
+          <div className={styles.itemTitle}>品种计算价格</div>
           <InputNumber
             addonAfter="￥"
             precision={2}
@@ -88,17 +88,17 @@ export const RiskCalc = () => {
               canBuyContracts - 1 > 0 && (
                 <div className={styles.rowCost}>
                   <div className={styles.itemTitle}>{ canBuyContracts - 1 }手总花费</div>
-                  <div>{ (canBuyContracts - 1) * OneContractCost }￥</div>
+                  <div>{ ((canBuyContracts - 1) * OneContractCost).toFixed(2) }￥</div>
                 </div>
               )
             }
             <div className={styles.rowCost}>
               <div className={styles.itemTitle}>{ canBuyContracts }手总花费</div>
-              <div>{ canBuyContracts * OneContractCost }￥</div>
+              <div>{ (canBuyContracts * OneContractCost).toFixed(2) }￥</div>
             </div>
             <div className={styles.rowCost}>
               <div className={styles.itemTitle}>{ canBuyContracts + 1 }手总花费</div>
-              <div>{ (canBuyContracts + 1) * OneContractCost }￥</div>
+              <div>{ ((canBuyContracts + 1) * OneContractCost).toFixed(2) }￥</div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ module.exports = {
     {
       name: 'nest',
       script: './dist/main.js',
-      cwd: 'packages/room-server',
+      cwd: 'packages/server',
       // restart from memory
       max_memory_restart: maxMemoryRestart,
       exec_mode: 'cluster',
