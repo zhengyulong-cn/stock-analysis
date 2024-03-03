@@ -42,6 +42,7 @@ jobs:
           username: ${{ env.USERNAME }}
           password: ${{ env.PASSWORD }}
           script: |
+            export PATH="/home/zhengyu/.nvm/versions/node/v20.11.1/bin:$PATH"
             rm -rf /var/www/stock-analysis/
             mkdir /var/www/stock-analysis -p
             cd /var/www/
