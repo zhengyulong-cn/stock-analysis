@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model StockAccount {
+  user_id         String    @id
+  username        String    @db.VarChar(255)
+  hashed_password String    @db.VarChar(255)
+  login_ip        String?   @db.VarChar(255)
+  created_at      DateTime
+  logout_at       DateTime?
+  login_at        DateTime?
+  updated_at      DateTime?
+
+  @@map("stock_account")
+}

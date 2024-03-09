@@ -3,16 +3,17 @@ import { IFuturesMarginItem, IBanProduct } from "@stock/core";
 
 const officialApi = {
   async getFuturesMarginData() {
-    const res = await request<IFuturesMarginItem[]>("official/data", {
-      method: "GET",
-    })
-    return res.data;
+    try {
+      const { data } = await request.get<IFuturesMarginItem[]>("official/data");
+      return data;
+    } catch (error) {
+      console.error(error.message)
+      return [];
+    }
   },
   async getBanProducts() {
-    const res = await request<IBanProduct[]>("official/banProducts", {
-      method: "GET",
-    })
-    return res.data;
+    const { data } = await request.get<IBanProduct[]>("official/banProducts");
+    return data;
   },
 }
 
