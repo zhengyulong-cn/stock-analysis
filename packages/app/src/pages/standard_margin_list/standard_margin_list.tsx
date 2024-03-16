@@ -60,7 +60,7 @@ export const StandardMarginList = () => {
   ]
   return (
     <div className={styles.standardMarginListWrapper} ref={wrapperRef}>
-      <div className={styles.title}>数据来源于徽商期货官网</div>
+      <div className={styles.title}>徽商期货品种列表（数据来源于徽商期货官网）</div>
       <Table
         style={{
           height: clientHeight,

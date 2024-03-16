@@ -22,9 +22,15 @@
         display: flex;
         flex-direction: column;
         row-gap: 8px;
-        .rowCost {
+        .row {
           display: flex;
-          column-gap: 8px;
+          flex-direction: row;
+          align-items: center;
+          .cost,.percent {
+            display: flex;
+            flex-direction: row;
+            column-gap: 4px;
+          }
         }
       }
     }

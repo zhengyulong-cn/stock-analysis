@@ -17,5 +17,3 @@ export interface IFuturesMarginItem {
 }
 
 export type IBanProduct = Pick<IFuturesMarginItem, 'product' | 'symbol'>
-
-console.log("offical ~~~~~~~~~~")

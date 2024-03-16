@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 
 interface RsponseData<T> {
   code: number;
@@ -19,7 +19,7 @@ const get = <T>(url: string, params?: AxiosRequestConfig): Promise<RsponseData<T
     method: 'GET',
     ...params,
   }).then(res => {
-    const resData = res.data;
+    const resData: RsponseData<T> = res.data;
     const { code } = resData;
     switch (code) {
       case 200:
@@ -28,7 +28,7 @@ const get = <T>(url: string, params?: AxiosRequestConfig): Promise<RsponseData<T
       default:
         reject(resData)
     }
-  }).catch(err => {
+  }).catch((err: AxiosError) => {
     reject(err)
   })
 })

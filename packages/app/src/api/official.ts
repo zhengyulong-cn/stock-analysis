@@ -6,7 +6,7 @@ const officialApi = {
     try {
       const { data } = await request.get<IFuturesMarginItem[]>("official/data");
       return data;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message)
       return [];
     }

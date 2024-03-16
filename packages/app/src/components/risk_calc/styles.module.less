@@ -1,0 +1,46 @@
+.riskCalcWrapper {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  .costBody {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    padding: 8px;
+    border: 4px solid hotpink;
+    border-radius: 8px;
+  }
+}
+
+.inputItem {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  column-gap: 8px;
+  .itemTitle {
+    justify-self: flex-end;
+  }
+  .itemMulti {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    max-height: 320px;
+    overflow: auto;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 4px;
+      border-radius: 4px;
+      &:hover {
+        background-color: hotpink;
+      }
+    }
+    .highlight {
+      color: red;
+    }
+  }
+}
