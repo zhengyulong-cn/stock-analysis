@@ -91,19 +91,19 @@ export const RiskCalc = () => {
         </div>
         <div className={styles.inputItem}>
           <div className={styles.itemTitle}>交易所</div>
-          <div>{ exchange ?? '未查询到数据' }</div>
+          <div>{exchange ?? '未查询到数据'}</div>
         </div>
         <div className={styles.inputItem}>
           <div className={styles.itemTitle}>保证金比例</div>
-          <div>{ `${Number(standardMargin) * 100}%` }</div>
+          <div>{`${Number(standardMargin) * 100}%`}</div>
         </div>
         <div className={styles.inputItem}>
           <div className={styles.itemTitle}>合约乘数</div>
-          <div>{ contractMultiplier ?? 0 }</div>
+          <div>{contractMultiplier ?? 0}</div>
         </div>
         <div className={styles.inputItem}>
           <div className={styles.itemTitle}>一手合约成本</div>
-          <div>{ oneContractCost }￥</div>
+          <div>{oneContractCost}￥</div>
         </div>
         <div className={styles.inputItem}>
           <div className={styles.itemTitle}>手数计算</div>
@@ -113,16 +113,16 @@ export const RiskCalc = () => {
                 const isDanger = el.percentTotalMoney > 0.2
                 return (
                   <div className={classNames(
-                      styles.row,
-                      isDanger ? styles.highlight : null
-                    )}
+                    styles.row,
+                    isDanger ? styles.highlight : null
+                  )}
                     key={index}
                   >
-                    <div>{ el.contractNum }手</div>
+                    <div>{el.contractNum}手</div>
                     <Divider type="vertical" />
-                    <div>总花费：{ el.cost }￥</div>
+                    <div>总花费：{el.cost}￥</div>
                     <Divider type="vertical" />
-                    <div>仓位占比：{ el.percentTotalMoney }</div>
+                    <div>仓位占比：{el.percentTotalMoney}</div>
                   </div>
                 )
               })
