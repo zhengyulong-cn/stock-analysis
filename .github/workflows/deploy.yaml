@@ -23,6 +23,7 @@ jobs:
       - name: Build Backend
         run: |
           pnpm install
+          pnpm prisma:g
           pnpm -w build || (echo "Build failed, see logs below:" && cat ./packages/server/dist/build.log)
       - name: Package backend build folder
         run: |
@@ -49,6 +50,6 @@ jobs:
             tar -xzvf server.tar.gz -C /var/www/stock-analysis
             rm server.tar.gz
             cd stock-analysis
-            pnpm prisma:g
             pnpm install
+            pnpm prisma:g
             pnpm -w pm2:server
