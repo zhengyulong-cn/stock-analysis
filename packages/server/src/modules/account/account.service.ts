@@ -4,7 +4,7 @@ import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class AccountService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async getAllAccounts(): Promise<StockAccount[]> {
     return this.prisma.stockAccount.findMany();
@@ -20,7 +20,7 @@ export class AccountService {
       if (accounts) {
         return accounts;
       } else {
-        throw new Error('没有该用户明对应的账户')
+        throw new Error('没有该用户名对应的账户')
       }
     } catch (error) {
       console.error('在请求账户时候报错', error);
@@ -64,6 +64,6 @@ export class AccountService {
   }
 
   async login() {
-    
+
   }
 }
