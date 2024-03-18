@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Divider, InputNumber, Select, Tag } from 'antd'
+import { Divider, InputNumber, Select } from 'antd'
 import { SelectProps } from 'antd/es/select';
 import styles from './styles.module.less'
 import { useAtom } from 'jotai';
 import { Atoms } from '@/store';
 import _ from 'lodash';
 import classNames from 'classnames';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
-// import _ from ''
 
 export const RiskCalc = () => {
   const [futuresMargin] = useAtom(Atoms.futuresMarginAtom);
